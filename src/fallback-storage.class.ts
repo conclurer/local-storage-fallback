@@ -8,7 +8,7 @@ export class FallbackStorage implements IStorageAdapter {
 
     public constructor(forceAdapter?: IStorageAdapter) {
         if (!forceAdapter) {
-            if (hasStorage(window.localStorage)) {
+            if (typeof window !== 'undefined' && hasStorage(window.localStorage)) {
                 // use localStorage
                 this.adapter = window.localStorage;
             }

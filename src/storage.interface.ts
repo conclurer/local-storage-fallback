@@ -3,5 +3,5 @@ export interface IStorageAdapter {
     // tslint:disable-next-line
     setItem(key: string, value: any): void;
     removeItem(key: string): void;
-    clear(): void
+    clear(): void;
 }

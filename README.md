@@ -1,27 +1,69 @@
-# local-storage-fallback
-Check and use appropriate storage adapter for browser (localStorage, sessionStorage, cookies, memory)
+# Local Storage Fallback
+Check and use appropriate storage adapter for browser (localStorage, sessionStorage, cookies, memory).
 
-[![npm version](https://badge.fury.io/js/local-storage-fallback.svg)](https://badge.fury.io/js/local-storage-fallback)
+Rewritten in Typescript from [original local-storage-fallback by ripeworks](https://github.com/ripeworks/local-storage-fallback).
+
+[![npm version](https://badge.fury.io/js/%40conclurer%2Flocal-storage-fallback.svg)](https://badge.fury.io/js/%40conclurer%2Flocal-storage-fallback)
 
 ## Installation
 
 ```
-$ npm install local-storage-fallback
+$ npm install @conclurer/local-storage-fallback
 ```
 
 ## Usage
 
-```js
-import storage from 'local-storage-fallback'
+### Basic Usage
 
-// Use storage directly
+```typescript
+import {FallbackStorage} from '@conclurer/local-storage-fallback';
+
+// Auto detect supported storage adapter (default behavior)
+let storage = new FallbackStorage();
 storage.setItem('foo', 'bar');
-storage.getItem('foo'); // bar
+storage.getItem('foo'); // => 'bar'
+```
 
-// Or shim window.localStorage
+### Use as Shim for localStorage
+
+To use local-storage-fallback as shim just import:
+
+```typescript
+import '@conclurer/local-storage-fallback/shim';
+```
+
+Or add the following lines:
+
+```typescript
+import {FallbackStorage} from '@conclurer/local-storage-fallback';
+
 if (!('localStorage' in window)) {
-  window.localStorage = storage;
+    // tslint:disable-next-line
+    (<any>window).localStorage = new FallbackStorage();
 }
+```
+
+### Specify Storage Adapter
+```typescript
+import {FallbackStorage, MemoryStorage} from '@conclurer/local-storage-fallback';
+
+let adapter = new MemoryStorage();
+let storage = new FallbackStorage(adapter);
+```
+
+### Custom Storage Adapters
+
+Custom storage adapters can be used by implementing the `IStorageAdapter` interface:
+
+```typescript
+import {FallbackStorage, IStorageAdapter} from '@conclurer/local-storage-fallback';
+
+class CustomAdapter implements IStorageAdapter {
+  // Custom implementation
+}
+
+let storage = new FallbackStorage(new CustomAdapter());
+
 ```
 
 ## Purpose

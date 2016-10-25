@@ -9,6 +9,9 @@ index.d.ts
 src/**/*.js
 src/**/*.js.map
 src/**/*.d.ts
+shim.js
+shim.js.map
+shim.d.ts
 
 # Tests
 test/**/*.js
