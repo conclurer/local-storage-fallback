@@ -1,28 +1,31 @@
 {
-  "name": "local-storage-fallback",
-  "version": "1.3.0",
+  "name": "@conclurer/local-storage-fallback",
+  "version": "1.0.0",
   "description": "Check and use appropriate storage adapter for browser (localStorage, sessionStorage, cookies, memory)",
-  "main": "lib/index.js",
+  "main": "index.js",
   "files": [
-    "lib/"
+    "src/*.js",
+    "src/*.d.ts",
+    "index.js",
+    "index.d.ts"
   ],
   "scripts": {
     "test": "ava",
-    "prepublish": "mkdir -p lib && babel --presets es2015 src --out-dir lib"
+    "prepublish": "mkdir -p lib && babel --presets es2015 src --out-dir lib && npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ripeworks/local-storage-fallback.git"
+    "url": "git+https://github.com/conclurer/local-storage-fallback.git"
   },
   "keywords": [
     "localStorage"
   ],
-  "author": "Mike Kruk <mike@ripeworks.com> (http://ripeworks.com)",
+  "author": "Conclurer GmbH",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ripeworks/local-storage-fallback/issues"
+    "url": "https://github.com/conclurer/local-storage-fallback/issues"
   },
-  "homepage": "https://github.com/ripeworks/local-storage-fallback#readme",
+  "homepage": "https://github.com/conclurer/local-storage-fallback#readme",
   "dependencies": {
     "cookie": "^0.3.1"
   },
