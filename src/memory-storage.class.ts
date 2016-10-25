@@ -3,8 +3,8 @@ import {IStorageAdapter} from './storage.interface';
 export class MemoryStorage implements IStorageAdapter {
     protected data: {[key: string]: string} = {};
 
-    public getItem(key: string): string | undefined {
-        return this.data.hasOwnProperty(key) ? this.data[key] : undefined;
+    public getItem(key: string): string | null {
+        return this.data.hasOwnProperty(key) ? this.data[key] : null;
     }
 
     // tslint:disable-next-line

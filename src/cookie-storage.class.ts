@@ -8,7 +8,7 @@ export class CookieStorage implements IStorageAdapter {
         this.prefix = prefix;
     }
 
-    public getItem(key: string): string | undefined {
+    public getItem(key: string): string | null {
         const cookies = cookie.parse(document.cookie);
         if (!cookies || !cookies.hasOwnProperty(this.prefix + key)) {
             return null;

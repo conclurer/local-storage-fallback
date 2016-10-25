@@ -23,7 +23,7 @@ export class FallbackStorage implements IStorageAdapter {
         }
     }
 
-    public getItem(key: string): string | undefined {
+    public getItem(key: string): string | null {
         return this.adapter.getItem(key);
     }
 

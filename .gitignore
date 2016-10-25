@@ -9,3 +9,8 @@ index.d.ts
 src/**/*.js
 src/**/*.js.map
 src/**/*.d.ts
+
+# Tests
+test/**/*.js
+test/**/*.js.map
+test/**/*.d.ts
