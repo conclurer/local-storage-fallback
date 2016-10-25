@@ -12,4 +12,4 @@ global.window.localStorage = global.window.sessionStorage = {
   clear: function () {
     this._data = {}
   }
-}
+};;;;;;;;;
